@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, ForeignKey, Date, DECIMAL
 from sqlalchemy.orm import relationship
 from app.database import Base
-from product import Products
+from app.models.product import Products
 
 class Orders(Base):
     __tablename__ = "orders"

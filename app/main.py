@@ -1,1 +1,7 @@
-print("Olá mundo!")
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+def root():
+    return {"mensagem": "A Api está rodadno normalmente"}

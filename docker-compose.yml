@@ -1,4 +1,3 @@
-version: '3.8'
 services:
   db:
     image: postgres:13
@@ -8,7 +7,7 @@ services:
       POSTGRES_PASSWORD: 133601
       POSTGRES_DB: Armando_neto_db
     ports: 
-      - "5432:5432"
+      - "5433:5432"
     volumes: 
       - db_data:/var/lib/postgresql/data
   api:
@@ -17,7 +16,11 @@ services:
       - "8000:8000"
     volumes:
       - .:/app
+    restart: always
+
     depends_on:
       - db
     environment:
-      - DATABASE_URL: postgresql://Armando_neto:133601@db:5432/Armando_neto_db
+      - DATABASE_URL=postgresql://Armando_neto:133601@db:5433/Armando_neto_db
+volumes:
+  db_data:

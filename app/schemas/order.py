@@ -11,7 +11,7 @@ class OrderCreate(BaseModel):
     numero_pedido: int
     data_pedido: date
     status: str = "Pendente"
-    valor_total = float
+    valor_total: float
     itens = List[OrderItemCreate]
 
 class OrderItemOut(BaseModel):

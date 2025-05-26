@@ -11,7 +11,7 @@ class ProductCreate(BaseModel):
     validade: Optional[date] = None
     imagem_url: Optional[str] = None
 
-class ProductOut(BaseModel):
+class ProductOut(ProductCreate):
     id: int
 
     class Config():

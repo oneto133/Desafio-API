@@ -6,7 +6,7 @@ class ClientCreate(BaseModel):
     email: EmailStr
     cpf: str
 
-class ClientOut(BaseModel):
+class ClientOut(ClientCreate):
     id: int
 
     class Config:

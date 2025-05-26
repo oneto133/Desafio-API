@@ -16,5 +16,5 @@ class UserOut(BaseModel):
     atualizado_em: datetime
     role: str
 
-    class config:
+    class Config:
         orm_mode = True

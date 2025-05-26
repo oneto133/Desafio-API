@@ -1,6 +1,7 @@
 from pydantic import BaseModel, EmailStr
 from datetime import date
 from typing import Optional
+from pydantic_settings import SettingsConfigDict
 
 class ProductCreate(BaseModel):
     descricao: str
@@ -14,6 +15,4 @@ class ProductCreate(BaseModel):
 class ProductOut(ProductCreate):
     id: int
 
-    class Config():
-        orm_mode = True
-        
+    model_config = SettingsConfigDict(from_attributes=True)

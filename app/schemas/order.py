@@ -1,6 +1,7 @@
 from pydantic import EmailStr, BaseModel
 from datetime import date
 from typing import List
+from pydantic_settings import SettingsConfigDict
 
 class OrderItemCreate(BaseModel):
     product_id: int
@@ -12,7 +13,7 @@ class OrderCreate(BaseModel):
     data_pedido: date
     status: str = "Pendente"
     valor_total: float
-    itens = List[OrderItemCreate]
+    itens: List[OrderItemCreate]
 
 class OrderItemOut(BaseModel):
     id: int
@@ -21,8 +22,7 @@ class OrderItemOut(BaseModel):
     quantidade: int
     preco_unitario_no_pedido: float
 
-    class Config:
-        orm_mode= True
+    model_config = SettingsConfigDict(from_attributes=True)
 
 class OrderOut(BaseModel):
     id: int
@@ -32,5 +32,4 @@ class OrderOut(BaseModel):
     valor_total: float
     itens: List[OrderItemOut]
 
-    class Config():
-        orm_mode= True
+    model_config = SettingsConfigDict(from_attributes=True)

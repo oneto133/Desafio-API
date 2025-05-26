@@ -1,7 +1,7 @@
 from pydantic import BaseModel, EmailStr
 from datetime import datetime
 from typing import Optional
-
+from pydantic_settings import SettingsConfigDict
 class UserCreate(BaseModel):
     username: str
     email: EmailStr
@@ -16,5 +16,4 @@ class UserOut(BaseModel):
     atualizado_em: datetime
     role: str
 
-    class Config:
-        orm_mode = True
+    model_config = SettingsConfigDict(from_attributes=True)

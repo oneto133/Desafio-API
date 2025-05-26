@@ -3,6 +3,8 @@ fastapi
 sqlalchemy
 alembic
 psycopg2-binary
+email-validator
+pydantic-settings
 pydantic
 python-jose[cryptography]
 passlib[bcrypt]
